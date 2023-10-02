@@ -106,7 +106,6 @@ _start:
 		vmovdqa64 zmm0, [zmm_xor_key]
 	%endif
 	and rsp, -64
-	sub rsp, BUFFER_SIZE
 %elifdef XOR_AVX2
 	%if XOR_KEY == 0xFF
 		vpcmpeqd ymm0, ymm0, ymm0
@@ -114,7 +113,6 @@ _start:
 		vmovdqa ymm0, [ymm_xor_key]
 	%endif
 	and rsp, -32
-	sub rsp, BUFFER_SIZE
 %elifdef XOR_SSE2
 	%if XOR_KEY == 0xFF
 		pcmpeqd xmm0, xmm0
@@ -122,10 +120,8 @@ _start:
 		movdqa xmm0, [xmm_xor_key]
 	%endif
 	and rsp, -16
-	sub rsp, BUFFER_SIZE
-%else
-	sub rsp, BUFFER_SIZE
 %endif
+	sub rsp, BUFFER_SIZE
 
 	mov rsi, rsp ; Both for read and write.
 file_loop:
