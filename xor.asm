@@ -68,7 +68,7 @@ section .data
 		zmm_xor_key times 64 db XOR_KEY
 	%elifdef XOR_AVX2
 		ymm_xor_key times 32 db XOR_KEY
-	%elifdef XOR_AVX512
+	%elifdef XOR_SSE2
 		xmm_xor_key times 16 db XOR_KEY
 	%endif
 %endif

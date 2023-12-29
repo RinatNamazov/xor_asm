@@ -11,7 +11,7 @@ You can use these parameters when assembling:
 * `-dBUFFER_SIZE=2048` // Reading buffer size. Be aware of the stack size limit.
 * `-dXOR_KEY=0xFF` // One-byte xor key value.
 
-And one of the types of instructions:
+And optionally, one of the options for SIMD instructions:
 * `-dXOR_SSE2`
 * `-dXOR_AVX2`
 * `-dXOR_AVX512`
